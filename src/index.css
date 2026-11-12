@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Malabar Velvet — sun-bleached bone, monsoon forest, temple gold */
+    --background: 40 33% 96%;
+    --foreground: 140 28% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 140 28% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 28% 15%;
+    --primary: 140 28% 15%;
+    --primary-foreground: 40 33% 96%;
+    --secondary: 40 26% 90%;
+    --secondary-foreground: 140 28% 15%;
+    --muted: 40 22% 91%;
+    --muted-foreground: 140 10% 33%;
+    --accent: 39 48% 56%;
+    --accent-foreground: 140 30% 12%;
+    --destructive: 5 62% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 16% 85%;
+    --input: 40 16% 82%;
+    --ring: 39 48% 56%;
+
+    --bone: 40 33% 96%;
+    --forest: 140 28% 15%;
+    --ink: 140 32% 9%;
+    --gold: 39 48% 56%;
+    --gold-soft: 39 44% 88%;
+
+    --radius: 0.25rem;
+
+    --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+    --font-heading: "Fraunces", "Cormorant Garamond", Georgia, serif;
+    --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    --font-script: "Italianno", "Segoe Script", cursive;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --chart-1: 39 48% 56%;
+    --chart-2: 140 28% 15%;
+    --chart-3: 140 16% 42%;
+    --chart-4: 39 30% 74%;
+    --chart-5: 5 62% 52%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-body text-foreground antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-light;
+    letter-spacing: -0.012em;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.32);
+    color: hsl(var(--ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-body text-[0.62rem] font-semibold  leading-none tracking-[0.36em] text-gold;
+  }
+
+  .display-xl {
+    font-size: clamp(2.75rem, 7.4vw, 6.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.022em;
+  }
+
+  .display-lg {
+    font-size: clamp(2.05rem, 4.4vw, 3.75rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+
+  .display-md {
+    font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .arch {
+    border-radius: clamp(56px, 11vw, 132px) 0 clamp(56px, 11vw, 132px) 0;
+    overflow: hidden;
+  }
+
+  .arch-sm {
+    border-radius: 70px 0 70px 0;
+    overflow: hidden;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-border;
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-input bg-white px-4 py-3 text-[0.95rem] text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-gold focus:ring-0;
+  }
+
+  .gold-underline {
+    position: relative;
+  }
+
+  .gold-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    background: hsl(var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .gold-underline:hover::after,
+  .gold-underline[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .article-body h2 {
+    @apply mt-10 mb-3 font-display text-[1.55rem] leading-snug text-foreground;
+  }
+
+  .article-body h3 {
+    @apply mt-8 mb-2 font-display text-[1.25rem] leading-snug text-foreground;
+  }
+
+  .article-body p {
+    @apply mt-4 text-[1rem] leading-[1.8] text-muted-foreground;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    @apply mt-4 space-y-2 pl-5 text-[1rem] leading-[1.8] text-muted-foreground;
+  }
+
+  .article-body ul {
+    @apply list-disc;
+  }
+
+  .article-body ol {
+    @apply list-decimal;
+  }
+
+  .article-body strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .article-body a {
+    @apply text-forest underline decoration-gold underline-offset-4;
+  }
+
+  .article-body blockquote {
+    @apply mt-6 border-l border-gold pl-5 font-display text-[1.25rem] leading-snug text-foreground;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-marquee {
+    animation: aaha-marquee 44s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-pulse-ring::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--gold) / 0.7);
+    animation: aaha-pulse 2.8s ease-out infinite;
+  }
+}
+
+@keyframes aaha-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes aaha-pulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}

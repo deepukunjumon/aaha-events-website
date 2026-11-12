@@ -1,0 +1,72 @@
+{
+  "name": "BlogPost",
+  "description": "Journal articles for SEO and planning advice.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "slug": {
+      "type": "string",
+      "title": "URL slug"
+    },
+    "excerpt": {
+      "type": "string",
+      "title": "Excerpt"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content (markdown)"
+    },
+    "cover_url": {
+      "type": "string",
+      "title": "Cover image URL"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author"
+    },
+    "read_minutes": {
+      "type": "number",
+      "title": "Read time (minutes)",
+      "default": 5
+    },
+    "published_date": {
+      "type": "string",
+      "title": "Published date",
+      "format": "date"
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

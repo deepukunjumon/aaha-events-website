@@ -1,0 +1,91 @@
+{
+  "name": "Enquiry",
+  "description": "Contact and quote requests submitted by visitors.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "event_type": {
+      "type": "string",
+      "title": "Event type"
+    },
+    "event_date": {
+      "type": "string",
+      "title": "Event date"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "guests": {
+      "type": "number",
+      "title": "Guests"
+    },
+    "budget": {
+      "type": "string",
+      "title": "Budget range"
+    },
+    "message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "source": {
+      "type": "string",
+      "title": "Source page"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "new",
+        "contacted",
+        "closed"
+      ],
+      "enumColors": [
+        "blue",
+        "yellow",
+        "gray"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name",
+    "phone"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

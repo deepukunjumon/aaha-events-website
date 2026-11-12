@@ -1,0 +1,104 @@
+{
+  "name": "Service",
+  "description": "Event services, each with its own detail page.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "slug": {
+      "type": "string",
+      "title": "URL slug",
+      "description": "e.g. wedding-planning"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "short_description": {
+      "type": "string",
+      "title": "Short description"
+    },
+    "description": {
+      "type": "string",
+      "title": "Full description"
+    },
+    "image_url": {
+      "type": "string",
+      "title": "Cover image URL"
+    },
+    "starting_price": {
+      "type": "number",
+      "title": "Starting price (INR)"
+    },
+    "price_visible": {
+      "type": "boolean",
+      "title": "Show starting price",
+      "default": true
+    },
+    "bookable": {
+      "type": "boolean",
+      "title": "Online booking enabled",
+      "default": true
+    },
+    "featured": {
+      "type": "boolean",
+      "title": "Featured on home",
+      "default": false
+    },
+    "included": {
+      "type": "array",
+      "title": "What's included",
+      "items": {
+        "type": "string"
+      }
+    },
+    "addons": {
+      "type": "array",
+      "title": "Add-ons",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gallery": {
+      "type": "array",
+      "title": "Gallery image URLs",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

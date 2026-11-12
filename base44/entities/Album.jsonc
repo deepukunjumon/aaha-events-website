@@ -1,0 +1,68 @@
+{
+  "name": "Album",
+  "description": "An event album in the gallery.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Album title"
+    },
+    "slug": {
+      "type": "string",
+      "title": "URL slug"
+    },
+    "event_type": {
+      "type": "string",
+      "title": "Event type"
+    },
+    "event_date": {
+      "type": "string",
+      "title": "Event date",
+      "format": "date"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "cover_url": {
+      "type": "string",
+      "title": "Cover image URL"
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "TeamMember",
+  "description": "People shown in the About page team section.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "role": {
+      "type": "string",
+      "title": "Role"
+    },
+    "bio": {
+      "type": "string",
+      "title": "Short bio"
+    },
+    "photo_url": {
+      "type": "string",
+      "title": "Photo URL"
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "role"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

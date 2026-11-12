@@ -1,0 +1,71 @@
+{
+  "name": "Package",
+  "description": "Priced collections shown on the home page and booking flow.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Package name"
+    },
+    "tagline": {
+      "type": "string",
+      "title": "Tagline"
+    },
+    "price": {
+      "type": "number",
+      "title": "Starting price (INR)"
+    },
+    "price_visible": {
+      "type": "boolean",
+      "title": "Show price",
+      "default": true
+    },
+    "featured": {
+      "type": "boolean",
+      "title": "Highlight this package",
+      "default": false
+    },
+    "service_slug": {
+      "type": "string",
+      "title": "Related service slug"
+    },
+    "inclusions": {
+      "type": "array",
+      "title": "Inclusions",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

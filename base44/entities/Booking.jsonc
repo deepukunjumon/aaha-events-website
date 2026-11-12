@@ -1,0 +1,134 @@
+{
+  "name": "Booking",
+  "description": "Booking requests created through the multi-step flow.",
+  "type": "object",
+  "properties": {
+    "booking_id": {
+      "type": "string",
+      "title": "Booking ID"
+    },
+    "service_slug": {
+      "type": "string",
+      "title": "Service slug"
+    },
+    "service_name": {
+      "type": "string",
+      "title": "Service name"
+    },
+    "package_name": {
+      "type": "string",
+      "title": "Package name"
+    },
+    "event_date": {
+      "type": "string",
+      "title": "Event date"
+    },
+    "time_slot": {
+      "type": "string",
+      "title": "Time slot"
+    },
+    "addons": {
+      "type": "array",
+      "title": "Add-ons",
+      "items": {
+        "type": "string"
+      }
+    },
+    "guest_count": {
+      "type": "number",
+      "title": "Guest count"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "customer_name": {
+      "type": "string",
+      "title": "Customer name"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    },
+    "estimate": {
+      "type": "number",
+      "title": "Estimated total (INR)"
+    },
+    "advance": {
+      "type": "number",
+      "title": "Advance amount (INR)"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "new",
+        "confirmed",
+        "completed",
+        "cancelled"
+      ],
+      "enumColors": [
+        "blue",
+        "green",
+        "gray",
+        "red"
+      ],
+      "default": "new"
+    },
+    "payment_status": {
+      "type": "string",
+      "title": "Payment status",
+      "enum": [
+        "unpaid",
+        "advance_due",
+        "advance_paid",
+        "paid"
+      ],
+      "enumColors": [
+        "red",
+        "yellow",
+        "blue",
+        "green"
+      ],
+      "default": "advance_due"
+    }
+  },
+  "required": [
+    "booking_id",
+    "customer_name",
+    "phone"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

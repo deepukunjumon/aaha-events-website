@@ -1,0 +1,51 @@
+{
+  "name": "Faq",
+  "description": "Questions grouped by category on the FAQ page.",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "title": "Question"
+    },
+    "answer": {
+      "type": "string",
+      "title": "Answer"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category"
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    },
+    "published": {
+      "type": "boolean",
+      "title": "Published",
+      "default": true
+    }
+  },
+  "required": [
+    "question",
+    "answer"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

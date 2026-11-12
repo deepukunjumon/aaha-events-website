@@ -1,0 +1,59 @@
+{
+  "name": "GalleryItem",
+  "description": "A photo or video inside an album.",
+  "type": "object",
+  "properties": {
+    "album_slug": {
+      "type": "string",
+      "title": "Album slug"
+    },
+    "type": {
+      "type": "string",
+      "title": "Media type",
+      "enum": [
+        "image",
+        "video"
+      ],
+      "enumColors": [
+        "gray",
+        "purple"
+      ],
+      "default": "image"
+    },
+    "url": {
+      "type": "string",
+      "title": "Image or video URL"
+    },
+    "caption": {
+      "type": "string",
+      "title": "Caption"
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "Sort order",
+      "default": 1
+    }
+  },
+  "required": [
+    "album_slug",
+    "url"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

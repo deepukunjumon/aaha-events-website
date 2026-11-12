@@ -1,0 +1,125 @@
+{
+  "name": "SiteSettings",
+  "description": "Global site content: brand, contact details, announcement bar and hero copy.",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "title": "Record key",
+      "default": "main",
+      "description": "Always 'main'. One settings record only."
+    },
+    "brand_name": {
+      "type": "string",
+      "title": "Brand name"
+    },
+    "tagline": {
+      "type": "string",
+      "title": "Footer tagline"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone number"
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "title": "WhatsApp number",
+      "description": "With country code, digits only preferred."
+    },
+    "email": {
+      "type": "string",
+      "title": "Email address"
+    },
+    "address": {
+      "type": "string",
+      "title": "Address"
+    },
+    "maps_url": {
+      "type": "string",
+      "title": "Google Maps link"
+    },
+    "hours": {
+      "type": "string",
+      "title": "Business hours"
+    },
+    "instagram_url": {
+      "type": "string",
+      "title": "Instagram URL"
+    },
+    "facebook_url": {
+      "type": "string",
+      "title": "Facebook URL"
+    },
+    "youtube_url": {
+      "type": "string",
+      "title": "YouTube URL"
+    },
+    "instagram_handle": {
+      "type": "string",
+      "title": "Instagram handle"
+    },
+    "announcement_enabled": {
+      "type": "boolean",
+      "title": "Show announcement bar",
+      "default": false
+    },
+    "announcement_text": {
+      "type": "string",
+      "title": "Announcement text"
+    },
+    "hero_eyebrow": {
+      "type": "string",
+      "title": "Hero eyebrow"
+    },
+    "hero_headline": {
+      "type": "string",
+      "title": "Hero headline"
+    },
+    "hero_subheadline": {
+      "type": "string",
+      "title": "Hero subheadline"
+    },
+    "hero_image_1": {
+      "type": "string",
+      "title": "Hero image / slide 1"
+    },
+    "hero_image_2": {
+      "type": "string",
+      "title": "Hero image / slide 2"
+    },
+    "about_story": {
+      "type": "string",
+      "title": "Our story"
+    },
+    "about_mission": {
+      "type": "string",
+      "title": "Our mission"
+    },
+    "advance_percent": {
+      "type": "number",
+      "title": "Advance percentage",
+      "default": 25
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
